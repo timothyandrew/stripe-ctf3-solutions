@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Starting servers"
+echo $1
+if [[ $1 = '--master' ]] ; then
+	export GEM_HOME=$HOME/gems
+	export GEM_PATH=$HOME/gems:/usr/lib/ruby/gems/1.8/
+	export PATH=$PATH:$HOME/gems/bin
+
+
+
+
+
+
+
+  mkdir /tmp/scratch
+  cp -R /data/test-cases/ /tmp/scratch
+  cd /tmp/scratch
+  git init
+  git add .
+  git commit -m 'foo'
+  cd -
+  ruby server.rb -p 9090
+fi
+
+sleep 2
